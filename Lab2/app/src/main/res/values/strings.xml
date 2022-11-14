@@ -3,4 +3,5 @@
     <string name="input_text">Enter Bio </string>
     <string name="text_btn">Trigger changes</string>
     <string name="my_name">Schadrack</string>
+    <string name="toast_massage">"Insert Bio first!</string>
 </resources>

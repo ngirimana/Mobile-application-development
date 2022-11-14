@@ -68,7 +68,7 @@ fun userInput(inputText:String, changed:(String)->Unit)
 {
     TextField(
         value = inputText, 
-        label={ Text(stringResource(id = R.string.input_text))},
+        label={ Text(stringResource(R.string.input_text))},
         onValueChange =changed,
 
         modifier = Modifier
@@ -82,7 +82,7 @@ fun textHandlerBtn(anyText:String,clicked:()-> Unit)
 {
     Button(onClick = clicked)
     {
-        Text(text = stringResource(id =R.string.text_btn))
+        Text(text = stringResource(R.string.text_btn))
     }
 }
 
@@ -91,7 +91,7 @@ fun MyImage(image: Int)
 {
     Image(
         painter = painterResource(image),
-        contentDescription = stringResource(id = R.string.my_name),
+        contentDescription = stringResource(R.string.my_name),
         modifier = Modifier
             .padding(top = 40.dp, bottom = 40.dp)
             .size(190.dp)
@@ -116,11 +116,13 @@ fun Greeting()
         {
             text.value = userInput.value
 
-            if (userInput.value.isNotEmpty()) {
+            if (userInput.value.isNotEmpty())
+            {
                 myImage.value = R.drawable.me_1
             }
-            else{
-                Toast.makeText(context, "Insert Bio first!.", Toast.LENGTH_LONG).show()
+            else
+            {
+                Toast.makeText(context, R.string.toast_massage, Toast.LENGTH_LONG).show()
             }
         }
         Box(

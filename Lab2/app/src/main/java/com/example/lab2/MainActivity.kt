@@ -78,7 +78,7 @@ fun userInput(inputText:String, changed:(String)->Unit)
 }
 
 @Composable
-fun textHandlerBtn(anyText:String,clicked:()-> Unit)
+fun TextHandlerBtn(anyText:String,clicked:()-> Unit)
 {
     Button(onClick = clicked)
     {
@@ -112,7 +112,7 @@ fun Greeting()
     {
         userInput(inputText = userInput.value, changed = { userInput.value = it })
         MyImage(image = myImage.value)
-        textHandlerBtn(userInput.value)
+        TextHandlerBtn(userInput.value)
         {
             text.value = userInput.value
 

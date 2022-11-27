@@ -37,12 +37,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Lab2Theme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting()
-                }
+                Greeting()
             }
         }
     }
@@ -106,19 +101,31 @@ fun Greeting()
     val userInput = remember { mutableStateOf("") }
     val text= remember { mutableStateOf("") }
     val myImage= remember { mutableStateOf(R.drawable.me) }
+    val  showImage = remember {
+        mutableStateOf(false)
+    }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
         userInput(inputText = userInput.value, changed = { userInput.value = it })
-        MyImage(image = myImage.value)
+        if (showImage.value)
+        {
+            MyImage(image = R.drawable.me_1)
+        }
+        else
+        {
+            MyImage(image = R.drawable.me)
+        }
+
         TextHandlerBtn(userInput.value)
         {
             text.value = userInput.value
 
             if (userInput.value.isNotEmpty())
             {
-                myImage.value = R.drawable.me_1
+                showImage.value = !showImage.value
+
             }
             else
             {
